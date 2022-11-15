@@ -1,0 +1,14 @@
+#define IO_USERNAME  "RAFSAN"
+#define IO_KEY       "aio_vPRc93ZoMv9nIcTUYMBnEvmPNxZX"
+
+
+
+
+#define IO_USERNAME  "RAFSAN"
+#define IO_KEY       "aio_vPRc93ZoMv9nIcTUYMBnEvmPNxZX"
+
+
+
+
+#define WLAN_SSID       "nure"             // Your SSID
+#define WLAN_PASS       "12@34@"   

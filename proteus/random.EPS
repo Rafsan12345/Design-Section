@@ -1,0 +1,238 @@
+%!PS-Adobe-2.0 EPSF-1.2
+%%Title: C:\Users\DCL\Desktop\project-code\random.LYT
+%%Creator: LX_PSDVC
+%%CreationDate: Sat Aug 28 20:53:43 2021
+%%BoundingBox: (atend)
+%%EndComments
+
+/docstate save def
+% Global scaling/translation
+0.072 0.072 scale
+1 setlinecap
+
+% Purpose: draw simple line
+% Usage:   x1 y1 x2 y2 t line
+/line
+ { setlinewidth
+   4 2 roll
+   moveto
+   lineto
+   stroke
+ } bind def
+
+% Purpose: draw elliptical quadrant arc
+% Usage:   cx cy xs ys xe ye a b q t
+%    where cx,cy are centre of ellipse
+%          a,b are ellipse diameter
+%          xs,ys, xe,ye are start, end coords
+%          q is quadrant number.
+%          t is line width
+/quadrant
+ { gsave
+   setlinewidth
+   /q exch def
+   /b exch def
+   /a exch def
+   /ye exch currentlinewidth add def
+   /xe exch currentlinewidth sub def
+   /ys exch currentlinewidth sub def
+   /xs exch currentlinewidth add def
+   /cy exch def
+   /cx exch def
+   /ysf b a div def
+   cx cy translate
+   q 1 eq { /xs xs neg def /xe xe neg def } if
+   q 2 eq { /xs xs neg def
+            /ys ys neg def
+            /xe xe neg def
+            /ye ye neg def
+          } if
+   q 3 eq { /ys ys neg def /ye ye neg def } if
+   newpath
+   xe ys moveto
+   xs ys lineto
+   xs ye lineto
+   xe ye lineto
+   closepath
+   clip
+   newpath
+   1 ysf scale
+   q 90 mul rotate
+   a 0 moveto 0 0 a 0 90 arc
+   stroke
+   grestore
+ } bind def
+
+% Purpose: draw bezier arc
+% Usage:   x1 y1 ... x4, y4 t
+%          xn yn are bezier points
+%          t is line width
+/bezier
+ { setlinewidth
+   moveto
+   curveto
+   stroke
+ } bind def
+
+% Purpose: draw filled rectangle
+% Usage:   x1 y1 x2 y2 fillbox
+/fillbox
+ { /y2 exch def
+   /x2 exch def
+   /y1 exch def
+   /x1 exch def
+   x1 y1 moveto
+   x2 y1 lineto
+   x2 y2 lineto
+   x1 y2 lineto
+   closepath
+   fill
+ } bind def
+
+% Purpose: draw elliptical blob in colour c (0 black, 1 white)
+% Usage:   x y a b c ellipse
+/eblob
+ { /c exch def
+   /b exch 2 div def
+   /a exch 2 div def
+   /y exch def
+   /x exch def
+   gsave
+   1 c sub setgray
+   x y translate
+   1 b a div scale
+   0 0 a 0 360 arc
+   fill
+   grestore
+ } bind def
+
+% Purpose: draw rectangular blob in colour c (0 black, 1 white)
+% Usage:   x y a b c rectangle
+/rblob
+ { /c exch def
+   /b exch 2 div def
+   /a exch 2 div def
+   /y exch def
+   /x exch def
+   gsave
+   1 c sub setgray
+   x a sub y b sub moveto
+   x a add y b sub lineto
+   x a add y b add lineto
+   x a sub y b add lineto
+   closepath
+   fill
+   grestore
+ } bind def
+
+% Purpose: draw polygonal blob in colour c (0 black, 1 white)
+% Usage:   xn yn ... x1 y1 np c pblob
+/pblob
+ { /c exch def
+   /np exch def
+   1 c sub setgray
+   moveto
+   np 1 sub
+   {lineto} repeat
+   closepath
+   fill
+ } bind def
+
+% Purpose: draw track segment of specified thickness
+% Usage:   x1 y1 x2 y2 t thickline
+/track
+ { gsave
+   0 setlinecap
+   setlinewidth
+   4 2 roll
+   moveto
+   lineto
+   stroke
+   grestore
+ } bind def
+%%EndProlog
+
+300 dup translate
+0 0 moveto 4158 0 lineto 4158 4258 lineto 0 4258 lineto clip newpath
+3254 1054 3254 954 12 track
+3254 954 12 12 1 eblob
+3254 954 3204 954 12 track
+3254 1054 3104 1054 12 track
+3004 779 12 12 1 eblob
+3004 779 3004 1254 12 track
+3004 1254 12 12 1 eblob
+3004 1254 3104 1354 12 track
+3004 779 12 12 1 eblob
+3004 779 3029 754 12 track
+3029 754 12 12 1 eblob
+3029 754 3104 754 12 track
+1554 404 1554 204 12 track
+1704 779 12 12 1 eblob
+3004 779 12 12 1 eblob
+1704 779 1729 754 12 track
+1729 754 12 12 1 eblob
+1729 754 2979 754 12 track
+2979 754 12 12 1 eblob
+2979 754 3004 779 12 track
+1704 779 12 12 1 eblob
+1554 404 1554 629 12 track
+1554 629 12 12 1 eblob
+1554 629 1704 779 12 track
+1704 779 12 12 1 eblob
+1704 779 1704 2154 12 track
+3204 895 3294 895 12 track
+3294 895 12 12 1 eblob
+3294 895 3329 929 12 track
+3329 929 12 12 1 eblob
+3329 929 3329 979 12 track
+3329 979 12 12 1 eblob
+3329 979 3404 1054 12 track
+3404 895 3404 754 12 track
+1504 2154 120 120 1 eblob
+1504 2154 30 30 0 eblob
+1704 2154 120 120 1 eblob
+1704 2154 30 30 0 eblob
+1904 2154 120 120 1 eblob
+1904 2154 30 30 0 eblob
+1554 204 90 90 1 eblob
+1554 204 25 25 0 eblob
+1954 204 90 90 1 eblob
+1954 204 25 25 0 eblob
+1694 444 1614 444 1614 364 1694 364 4 1 pblob
+1654 404 25 25 0 eblob
+1594 444 1514 444 1514 364 1594 364 4 1 pblob
+1554 404 25 25 0 eblob
+1494 444 1414 444 1414 364 1494 364 4 1 pblob
+1454 404 25 25 0 eblob
+3254 1354 70 70 1 eblob
+3254 1354 25 25 0 eblob
+3254 1054 70 70 1 eblob
+3254 1054 25 25 0 eblob
+3104 1354 70 70 1 eblob
+3104 1354 25 25 0 eblob
+3104 1054 70 70 1 eblob
+3104 1054 25 25 0 eblob
+3204 954 50 50 1 eblob
+3204 954 10 10 0 eblob
+3204 895 50 50 1 eblob
+3204 895 10 10 0 eblob
+3404 954 50 50 1 eblob
+3404 954 10 10 0 eblob
+3404 895 50 50 1 eblob
+3404 895 10 10 0 eblob
+3404 1054 70 70 1 eblob
+3404 1054 25 25 0 eblob
+3404 1354 70 70 1 eblob
+3404 1354 25 25 0 eblob
+3404 754 70 70 1 eblob
+3404 754 25 25 0 eblob
+3104 754 70 70 1 eblob
+3104 754 25 25 0 eblob
+4 4 4154 4 8 line
+4154 4 4154 4254 8 line
+4154 4254 4 4254 8 line
+4 4254 4 4 8 line
+docstate restore
+
+%%Trailer
+%%BoundingBox: 0 0 342 349
